@@ -6,7 +6,7 @@
 #    By: jponcele <jponcele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/27 12:29:52 by jponcele          #+#    #+#              #
-#    Updated: 2014/04/23 15:48:48 by jponcele         ###   ########.fr        #
+#    Updated: 2014/04/23 16:46:31 by jponcele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ DIROBJ = ./obj/
 
 SRC = nm_main.c\
 	  ft_nm.c\
-	  setters.c
+	  setters.c\
+	  struct_nm.c
 
 OBJ = $(SRC:.c=.o)
 
