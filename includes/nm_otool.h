@@ -6,12 +6,14 @@
 /*   By: jponcele <jponcele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/21 11:31:06 by jponcele          #+#    #+#             */
-/*   Updated: 2014/04/24 09:51:32 by jponcele         ###   ########.fr       */
+/*   Updated: 2014/04/24 11:38:36 by jponcele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef NM_OTOOL_H
 # define NM_OTOOL_H
+
+#include <stdio.h>
 
 # include			<libft.h>
 # include			<ft_printf.h>
@@ -53,5 +55,18 @@ void				add_to_nm(t_nm **nm, struct nlist_64 *nl, void *start);
 void				print_nm(t_nm **nm);
 void				sort_nm(t_nm **nm);
 t_nm				*nm_swap(t_nm *a, t_nm *b);
+
+/*
+**					ft_otool.c
+*/
+
+void				ft_otool(char *filename);
+
+/*
+**					setters.c
+*/
+
+void				*set_map(char *filename);
+void				otool_print(void *start);
 
 #endif

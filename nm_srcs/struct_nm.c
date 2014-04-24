@@ -6,7 +6,7 @@
 /*   By: jponcele <jponcele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/23 16:02:14 by jponcele          #+#    #+#             */
-/*   Updated: 2014/04/24 09:50:08 by jponcele         ###   ########.fr       */
+/*   Updated: 2014/04/24 11:12:48 by jponcele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ void					print_nm(t_nm **nm)
 			ft_printf("%0.16x ", current->offset);
 		else
 			ft_printf("                 ");
-		ft_printf("%c %s\n", current->type, current->str);
+		ft_putchar(current->type);
+		ft_printf(" %s\n", current->str);
 		if (!(current->next))
 			break ;
 		current = current->next;
