@@ -6,7 +6,7 @@
 /*   By: jponcele <jponcele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/23 16:02:14 by jponcele          #+#    #+#             */
-/*   Updated: 2014/04/23 18:33:06 by jponcele         ###   ########.fr       */
+/*   Updated: 2014/04/24 09:50:08 by jponcele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void					print_nm(t_nm **nm)
 	while (42)
 	{
 		if (current->offset)
-			ft_printf("0000000%x ", current->offset);
+			ft_printf("%0.16x ", current->offset);
 		else
 			ft_printf("                 ");
 		ft_printf("%c %s\n", current->type, current->str);
@@ -65,26 +65,35 @@ void					print_nm(t_nm **nm)
 void					sort_nm(t_nm **nm)
 {
 	int					change;
-	t_nm				*current;
+	t_nm				*p;
+	t_nm				*q;
 	t_nm				*tmp;
 
 	change = 1;
+	tmp = (t_nm *)malloc(sizeof(t_nm));
+	tmp->next = *nm;
 	while (change)
 	{
 		change = 0;
-		current = *nm;
-		current = current->next;
-		while (current->next)
+		q = tmp->next;
+		p = tmp->next->next;
+		while (p->next)
 		{
-			ft_printf("%s - %s - %d\n", current->str, current->next->str, ft_strcmp(current->str, current->next->str));
-			if (ft_strcmp(current->str, current->next->str) > 0)
+			if (ft_strcmp(p->str, p->next->str) > 0)
 			{
 				change = 1;
-				tmp = current;
-				current-
-				current->next = tmp;
+				q->next = nm_swap(p, p->next);
 			}
-			current = current->next;
+			q = p;
+			if (p->next)
+				p = p->next;
 		}
 	}
+}
+
+t_nm					*nm_swap(t_nm *a, t_nm *b)
+{
+	a->next = b->next;
+	b->next = a;
+	return (b);
 }

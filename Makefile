@@ -6,7 +6,7 @@
 #    By: jponcele <jponcele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/27 12:29:52 by jponcele          #+#    #+#              #
-#    Updated: 2014/04/23 16:46:31 by jponcele         ###   ########.fr        #
+#    Updated: 2014/04/24 09:50:11 by jponcele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ OBJ = $(SRC:.c=.o)
 DIROBJS = $(addprefix $(DIROBJ), $(OBJ))
 
 LFT = -L ./libft/ -lft
-LPRINTF = -L ./libft/ -lft2
+LPRINTF = -L ./libft/ -lftprintf
 
 CC = clang
 CFLAGS = -Wall -Werror -Wextra -g

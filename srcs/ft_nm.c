@@ -6,7 +6,7 @@
 /*   By: jponcele <jponcele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/23 13:40:27 by jponcele          #+#    #+#             */
-/*   Updated: 2014/04/23 18:33:06 by jponcele         ###   ########.fr       */
+/*   Updated: 2014/04/24 09:51:19 by jponcele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,6 @@ void	nm_print(void *start)
 	}
 }
 
-/*			if (nl->n_value)
-**				ft_printf("0000000%x", nl->n_value);
-**			else
-**				ft_printf("                ");
-**			ft_printf(" %c ", change_type(nl->n_type));
-**			ft_printf("%s\n", (char *)start + nl->n_un.n_strx);
-*/
-
 void	print_symtab(struct mach_header_64 *cur, void *start)
 {
 	struct symtab_command		*sc;
@@ -79,7 +71,6 @@ void	print_symtab(struct mach_header_64 *cur, void *start)
 		a = a + sizeof(struct nlist_64);
 	}
 	print_nm(nm);
-//	free_nm(nm);
 }
 
 char	change_type(uint64_t value)
