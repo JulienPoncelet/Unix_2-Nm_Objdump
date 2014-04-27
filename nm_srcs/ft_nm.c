@@ -6,7 +6,7 @@
 /*   By: jponcele <jponcele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/23 13:40:27 by jponcele          #+#    #+#             */
-/*   Updated: 2014/04/24 11:38:34 by jponcele         ###   ########.fr       */
+/*   Updated: 2014/04/27 16:38:02 by jponcele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	ft_nm(char *filename, int ac)
 			ft_printf("\n%s:\n", filename);
 		nm_print(start);
 	}
+	else
+		ft_printf("ft_nm: %s is not a valid file\n", filename);
 }
 
 void	nm_print(void *start)
@@ -73,13 +75,31 @@ void	print_symtab(struct mach_header_64 *cur, void *start)
 	print_nm(nm);
 }
 
-char	change_type(uint64_t value)
+char	change_type(uint8_t type, uint8_t sect)
 {
-	if (value == 1)
+	if (type == 1)
 		return ('U');
-	if (value == 14)
-		return ('d');
-	if (value == 15)
-		return ('T');
+	if (type == 14)
+	{
+		if (sect == 1)
+			return ('t');
+		if (sect == 8)
+			return ('s');
+		if (sect == 9)
+			return ('d');
+		if (sect == 11)
+			return ('b');
+	}
+	if (type == 15)
+	{
+		if (sect == 1)
+			return ('T');
+		if (sect == 8)
+			return ('D');
+		if (sect == 9 || sect == 11)
+			return ('S');
+		if (sect == 10)
+			return ('D');
+	}
 	return ('X');
 }

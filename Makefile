@@ -6,7 +6,7 @@
 #    By: jponcele <jponcele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/27 12:29:52 by jponcele          #+#    #+#              #
-#    Updated: 2014/04/24 10:40:14 by jponcele         ###   ########.fr        #
+#    Updated: 2014/04/27 15:35:15 by jponcele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,8 +35,8 @@ OTOOL_OBJ = $(OTOOL_SRC:.c=.o)
 
 OTOOL_DIROBJS = $(addprefix $(OTOOL_DIROBJ), $(OTOOL_OBJ))
 
-LFT = -L ./libft/ -lft
-LPRINTF = -L ./libft/ -lftprintf
+LFT = ./libft/libft.a
+LPRINTF = ./libft/.libft2.a
 
 CC = clang
 CFLAGS = -Wall -Werror -Wextra -g

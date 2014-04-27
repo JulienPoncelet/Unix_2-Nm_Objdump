@@ -6,7 +6,7 @@
 /*   By: jponcele <jponcele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/23 16:02:14 by jponcele          #+#    #+#             */
-/*   Updated: 2014/04/24 11:12:48 by jponcele         ###   ########.fr       */
+/*   Updated: 2014/04/27 17:32:12 by jponcele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void					add_to_nm(t_nm **nm, struct nlist_64 *nl, void *start)
 	while (current->next)
 		current = current->next;
 	add->offset = nl->n_value;
-	add->type = change_type(nl->n_type);
+	add->type = change_type(nl->n_type, nl->n_sect);
 	add->str = (char *)start + nl->n_un.n_strx;
 	current->next = add;
 }
@@ -52,7 +52,7 @@ void					print_nm(t_nm **nm)
 	while (42)
 	{
 		if (current->offset)
-			ft_printf("%0.16x ", current->offset);
+			ft_printf("%.16x ", current->offset);
 		else
 			ft_printf("                 ");
 		ft_putchar(current->type);

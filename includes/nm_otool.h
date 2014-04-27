@@ -6,14 +6,12 @@
 /*   By: jponcele <jponcele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/21 11:31:06 by jponcele          #+#    #+#             */
-/*   Updated: 2014/04/24 11:38:36 by jponcele         ###   ########.fr       */
+/*   Updated: 2014/04/27 15:42:16 by jponcele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef NM_OTOOL_H
 # define NM_OTOOL_H
-
-#include <stdio.h>
 
 # include			<libft.h>
 # include			<ft_printf.h>
@@ -38,7 +36,7 @@ typedef struct		s_nm
 void				ft_nm(char *filename, int ac);
 void				nm_print(void *start);
 void				print_symtab(struct mach_header_64 *addr, void *start);
-char				change_type(uint64_t value);
+char				change_type(uint8_t type, uint8_t sect);
 
 /*
 **					setters.c
@@ -61,12 +59,15 @@ t_nm				*nm_swap(t_nm *a, t_nm *b);
 */
 
 void				ft_otool(char *filename);
+void				otool_print(void *start);
+void				next(void *cur, struct segment_command_64 *sc, void *start);
+void				nextnext(uint64_t s1, void *s2, struct section_64 *sect);
+void				ft_dump_hexa(char *dump, uint32_t len);
 
 /*
 **					setters.c
 */
 
 void				*set_map(char *filename);
-void				otool_print(void *start);
 
 #endif
